@@ -19,7 +19,7 @@ public class DSNDumpCompareReportGenerator
     {
         try
         {
-            System.out.println("Loading Driver...");
+            System.out.println("Loading Driver!!!");
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
             PropertiesLoader propertiesloader = PropertiesLoader.getInstance();
             String s = propertiesloader.getPropertyValue("dbcompare.database.url");
