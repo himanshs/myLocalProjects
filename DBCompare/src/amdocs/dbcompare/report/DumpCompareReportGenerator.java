@@ -19,7 +19,7 @@ public class DumpCompareReportGenerator
     {
         try
         {
-            System.out.println("Loading Driver");
+            System.out.println("Loading Driver!!!");
             Class.forName("oracle.jdbc.driver.OracleDriver");
             PropertiesLoader propertiesloader = PropertiesLoader.getInstance();
             String s = propertiesloader.getPropertyValue("dbcompare.database.url");
