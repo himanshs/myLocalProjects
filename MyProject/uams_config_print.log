@@ -1,0 +1,970 @@
+Name       : user.profile
+Location   : res/template/client/profile/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/profile/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsProxyProfileModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	servicename=UamsProfileService
+Bindnames  : 
+	UamsProfileService
+Dependencies : 
+	invoker
+
+
+Name       : secondary.step.loginsp
+Location   : res/template/client/loginsp/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/loginsp/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsProxyLoginModule
+Type       : mandatory
+Access     : private
+Startup    : disabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	object.connection=connection
+	servicename=serverside.secondary.loginsp.service
+Bindnames  : 
+	secondary.loginsp.service
+	UamsSecondaryLoginSP
+Dependencies : 
+	connection
+
+
+Name       : connection
+Location   : res/template/client/transport/connection/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/transport/connection/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.URLObjectConnModule
+Type       : optional
+Access     : private
+Startup    : enabled
+inheritFrom: 
+Properties :
+	url=http://indlin1942:11121/UamsTransport/TransportServlet
+	uams.serialization=false
+Bindnames  : 
+Dependencies : 
+
+
+Name       : sess.ctrl.srvce
+Location   : res/template/client/sessctrl/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/sessctrl/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsSessionControlServiceProxyModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	servicename=UamsSessionControlService
+Bindnames  : 
+	UamsSessionControlService
+Dependencies : 
+	invoker
+
+
+Name       : policy.authz.service
+Location   : res/template/client/authz/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/authz/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsAuthorizationServiceProxyModule
+Type       : mandatory
+Access     : private
+Startup    : enabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	servicename=UamsAuthorizationService
+Bindnames  : 
+Dependencies : 
+	invoker
+
+
+Name       : prompt.datacollector
+Location   : res/template/client/promptlogin/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/promptlogin/uams.modules
+Classname  : amdocs.uamsimpl.client.login.interactive.PromptDataCollectorModule
+Type       : mandatory
+Access     : private
+Startup    : enabled
+inheritFrom: 
+Properties :
+	new.credential.expiration=30
+Bindnames  : 
+Dependencies : 
+
+
+Name       : main.direct.login
+Location   : res/template/client/directlogin/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/directlogin/uams.modules
+Classname  : amdocs.uamsimpl.client.login.direct.DirectLoginServiceModule
+Type       : mandatory
+Access     : private
+Startup    : enabled
+inheritFrom: 
+Properties :
+	ticket.attr.helper=ticket.helper
+	loginsp.service=step.loginsp
+Bindnames  : 
+Dependencies : 
+	ticket.helper
+	step.loginsp
+
+
+Name       : secondary.direct.login.wrapper
+Location   : res/template/client/directlogin/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/directlogin/uams.modules
+Classname  : amdocs.uamsimpl.client.login.direct.PropsDirectLoginWrapperModule
+Type       : mandatory
+Access     : public
+Startup    : disabled
+inheritFrom: 
+Properties :
+	delegate.direct.login=secondary.direct.login
+Bindnames  : 
+	SecondaryDirectLogin
+	UamsSecondaryDirectLogin
+Dependencies : 
+	secondary.direct.login
+
+
+Name       : connection1
+Location   : res/template/client/transport/connection1/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/transport/connection1/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.URLObjectConnModule
+Type       : optional
+Access     : private
+Startup    : disabled
+inheritFrom: 
+Properties :
+	url=http:///UamsTransport/TransportServlet
+	uams.serialization=false
+Bindnames  : 
+Dependencies : 
+
+
+Name       : object.factory.proxy
+Location   : res/template/client/basic/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/basic/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsObjectFactoryProxyModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	servicename=UamsObjectFactory
+Bindnames  : 
+	ObjectFactory
+	UamsObjectFactory
+Dependencies : 
+	invoker
+
+
+Name       : logging.multi
+Location   : res/template/shared/log/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/shared/log/uams.modules
+Classname  : amdocs.uamsimpl.server.log.multi.MultiLogModule
+Type       : mandatory
+Access     : private
+Startup    : enabled
+inheritFrom: 
+Properties :
+	loggers=logging.main:448, logging.debug:3:4194303
+Bindnames  : 
+Dependencies : 
+	logging.main
+	log.email
+	logging.debug
+
+
+Name       : gui.datacollector
+Location   : res/template/client/guilogin/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/guilogin/uams.modules
+Classname  : amdocs.uamsimpl.client.login.interactive.WDataCollectorModule
+Type       : mandatory
+Access     : private
+Startup    : enabled
+inheritFrom: 
+Properties :
+	new.credential.expiration=30
+Bindnames  : 
+Dependencies : 
+
+
+Name       : promt.login
+Location   : res/template/client/promptlogin/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/promptlogin/uams.modules
+Classname  : amdocs.uamsimpl.client.login.interactive.InteractiveLoginModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	loginsp.service=step.loginsp
+	login.datacollector.interactive.service=prompt.datacollector
+Bindnames  : 
+	UamsPromptLogin
+	UamsLogin
+	PromtLogin
+Dependencies : 
+	step.loginsp
+	prompt.datacollector
+
+
+Name       : direct.login.ctc.stub
+Location   : res/template/client/directlogin/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/directlogin/uams.modules
+Classname  : amdocs.uamsimpl.client.login.direct.StubCredDirectLoginModule
+Type       : mandatory
+Access     : public
+Startup    : disabled
+inheritFrom: 
+Properties :
+Bindnames  : 
+	CtcDirectLogin
+	UamsCtcDirectLogin
+	DirectCredLogin
+	UamsCredLogin
+Dependencies : 
+
+
+Name       : role.hierarchy
+Location   : res/template/client/rolehier/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/rolehier/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsRoleHierarchyServiceProxyModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	servicename=UamsRoleHierarchy
+Bindnames  : 
+	RoleHierarchy
+	UamsRoleHierarchy
+Dependencies : 
+	invoker
+
+
+Name       : chg.ctc
+Location   : res/template/client/pwdsrvc/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/pwdsrvc/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsClientTokenCredentialServiceProxyModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	servicename=UamsClientTokenCredentialService
+Bindnames  : 
+	UamsCtcCredService
+	UamsClientTokenCredentialService
+	UamsCtcService
+Dependencies : 
+	invoker
+
+
+Name       : balancer
+Location   : res/template/client/transport/invoker/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/transport/invoker/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.LoadBalancingModule
+Type       : mandatory
+Access     : private
+Startup    : enabled
+inheritFrom: 
+Properties :
+Bindnames  : 
+Dependencies : 
+
+
+Name       : step.loginsp
+Location   : res/template/client/loginsp/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/loginsp/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsProxyLoginModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	object.connection=connection
+	servicename=serverside.loginsp.service
+Bindnames  : 
+	loginsp.service
+	UamsLoginSP
+Dependencies : 
+	connection
+	invoker
+
+
+Name       : ticket.helper.delegate
+Location   : res/template/client/ticket/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/ticket/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsTicketHelperProxyModule
+Type       : mandatory
+Access     : private
+Startup    : enabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	servicename=UamsTicketHelper
+Bindnames  : 
+Dependencies : 
+	invoker
+
+
+Name       : primary.init
+Location   : res/template/shared/startup/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/shared/startup/uams.modules
+Classname  : amdocs.uamsimpl.shared.startup.UamsPrimaryStartupModule
+Type       : mandatory
+Access     : private
+Startup    : enabled
+inheritFrom: 
+Properties :
+	startup.callbacks=amdocs.uamsimpl.shared.startup.UamsErrorCodeStartup , amdocs.uamsimpl.shared.startup.UamsLanguageResourceStartup
+	debug.logger=log.debug.dispatcher
+Bindnames  : 
+Dependencies : 
+	log.debug.dispatcher
+
+
+Name       : logger.debug
+Location   : res/template/shared/log/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/shared/log/uams.modules
+Classname  : amdocs.uamsimpl.server.log.file.text.TextLogModule
+Type       : mandatory
+Access     : private
+Startup    : enabled
+inheritFrom: 
+Properties :
+	file.maxSize=2048
+	file.name=uams_dbg
+	file.extension=log
+Bindnames  : 
+Dependencies : 
+
+
+Name       : connection9
+Location   : res/template/client/transport/connection9/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/transport/connection9/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.URLObjectConnModule
+Type       : optional
+Access     : private
+Startup    : disabled
+inheritFrom: 
+Properties :
+	url=http:///UamsTransport/TransportServlet
+	uams.serialization=false
+Bindnames  : 
+Dependencies : 
+
+
+Name       : direct.login.wrapper
+Location   : res/template/client/directlogin/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/directlogin/uams.modules
+Classname  : amdocs.uamsimpl.client.login.direct.PropsDirectLoginWrapperModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	delegate.direct.login=direct.login
+Bindnames  : 
+	DirectLogin
+	UamsDirectLogin
+Dependencies : 
+	direct.login
+
+
+Name       : chg.pwd
+Location   : res/template/client/pwdsrvc/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/pwdsrvc/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsPasswordCredentialServiceProxyModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	servicename=UamsPasswordService
+Bindnames  : 
+	UamsPwdCredService
+	UamsPasswordCredentialService
+	UamsPasswordService
+Dependencies : 
+	invoker
+
+
+Name       : direct.internal.login.wrapper
+Location   : res/template/client/directlogin/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/directlogin/uams.modules
+Classname  : amdocs.uamsimpl.client.login.direct.PropsDirectLoginWrapperModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	delegate.direct.login=direct.internal.login
+Bindnames  : 
+	InternalDirectLogin
+	UamsInternalDirectLogin
+Dependencies : 
+	direct.internal.login
+
+
+Name       : object.name
+Location   : res/template/client/basic/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/basic/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsObjectNameHelperProxyModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	servicename=UamsObjectNameHelper
+Bindnames  : 
+	UamsObjectNameHelper
+Dependencies : 
+	invoker
+
+
+Name       : step.internal.loginsp
+Location   : res/template/client/loginsp/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/loginsp/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsProxyLoginModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	object.connection=connection
+	servicename=serverside.internal.loginsp.service
+Bindnames  : 
+	loginsp.internal.service
+	UamsInternalLoginSP
+Dependencies : 
+	invoker
+	connection
+
+
+Name       : logging.main
+Location   : res/template/client/log/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/log/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsLogServiceProxyModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	servicename=UamsLog
+Bindnames  : 
+	UamsProxyLog
+	UamsProxyLogService
+Dependencies : 
+	invoker
+
+
+Name       : invoker
+Location   : res/template/client/transport/invoker/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/transport/invoker/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsInvokerModule
+Type       : mandatory
+Access     : private
+Startup    : enabled
+inheritFrom: 
+Properties :
+	poll.monitor.awake.time=300
+	balancer.class=balancer
+	trace=false
+	invoker.connnames=connection
+	max.retrieve.count=2
+Bindnames  : 
+Dependencies : 
+	connection8
+	connection7
+	connection6
+	connection5
+	connection4
+	connection3
+	connection2
+	connection1
+	balancer
+	connection
+	connection9
+
+
+Name       : connection6
+Location   : res/template/client/transport/connection6/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/transport/connection6/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.URLObjectConnModule
+Type       : optional
+Access     : private
+Startup    : disabled
+inheritFrom: 
+Properties :
+	url=http:///UamsTransport/TransportServlet
+	uams.serialization=false
+Bindnames  : 
+Dependencies : 
+
+
+Name       : secondary.direct.login
+Location   : res/template/client/directlogin/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/directlogin/uams.modules
+Classname  : amdocs.uamsimpl.client.login.direct.ExtTicketDirectLoginModule
+Type       : mandatory
+Access     : private
+Startup    : disabled
+inheritFrom: 
+Properties :
+	ticket.attr.helper=ticket.helper
+	loginsp.service=step.secondary.loginsp
+Bindnames  : 
+Dependencies : 
+	ticket.helper
+	step.secondary.loginsp
+
+
+Name       : dataMangr.proxy
+Location   : res/template/client/basic/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/basic/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsDataManagerProxyModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	servicename=UamsDataManager
+Bindnames  : 
+	DataManager
+	UamsDataManager
+	UamsDataMngrProxy
+Dependencies : 
+	invoker
+
+
+Name       : connection8
+Location   : res/template/client/transport/connection8/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/transport/connection8/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.URLObjectConnModule
+Type       : optional
+Access     : private
+Startup    : disabled
+inheritFrom: 
+Properties :
+	url=http:///UamsTransport/TransportServlet
+	uams.serialization=false
+Bindnames  : 
+Dependencies : 
+
+
+Name       : admin.props.reader
+Location   : res/template/shared/adminprops/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/shared/adminprops/uams.modules
+Classname  : amdocs.uamsimpl.shared.service.SystemPropertiesReaderModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	rules.classes=amdocs.uamsimpl.shared.authz.policy.rule.UamsRoleRule,amdocs.uamsimpl.shared.authz.policy.rule.UamsTimeRule,amdocs.uamsimpl.shared.authz.policy.rule.UamsEqualParamRule,amdocs.uamsimpl.shared.authz.policy.rule.UamsGreaterParamRule,amdocs.uamsimpl.shared.authz.policy.rule.UamsLessParamRule,amdocs.uamsimpl.shared.authz.policy.rule.UamsRoleAttrRule,amdocs.uamsimpl.shared.authz.policy.rule.manager.UamsNamespaceRule,amdocs.uamsimpl.shared.authz.policy.rule.manager.ObjectTypeSwitchRule,amdocs.uamsimpl.shared.authz.policy.rule.manager.NamespaceSwitchRule,amdocs.uamsimpl.shared.authz.policy.rule.manager.SeparateNamespaceSwitchRule,amdocs.uamsimpl.shared.authz.policy.rule.manager.SharedObjectSwitchRule,amdocs.uamsimpl.shared.authz.policy.rule.basic.UamsDenyRule,amdocs.uamsimpl.shared.authz.policy.rule.basic.UamsGrantRule, amdocs.uamsimpl.shared.authz.policy.rule.UamsMultiRule, amdocs.uamsimpl.shared.authz.policy.rule.basic.UamsIndifferentRule
+Bindnames  : 
+	UamsAdminPropertiesReader
+Dependencies : 
+
+
+Name       : logging.dispatcher
+Location   : res/template/shared/log/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/shared/log/uams.modules
+Classname  : amdocs.uamsimpl.server.log.dispatcher.DispatcherLogModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	max.events.per.queue=1024
+	send.alert.email=true
+	logger=logging.multi
+	send.event.email=false
+	email.service=log.email
+	alert.threshold=95
+Bindnames  : 
+	DispatcherLog
+	UamsLog
+Dependencies : 
+	log.email
+	logging.multi
+
+
+Name       : sess.stor
+Location   : res/template/client/sessattr/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/sessattr/uams.modules
+Classname  : amdocs.uamsimpl.server.sessionctrl.storage.BaseSessionCacheModule
+Type       : mandatory
+Access     : private
+Startup    : enabled
+inheritFrom: 
+Properties :
+	cache.storage.class=sess.backend.stor
+Bindnames  : 
+Dependencies : 
+	sess.backend.stor
+
+
+Name       : connection5
+Location   : res/template/client/transport/connection5/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/transport/connection5/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.URLObjectConnModule
+Type       : optional
+Access     : private
+Startup    : disabled
+inheritFrom: 
+Properties :
+	url=http:///UamsTransport/TransportServlet
+	uams.serialization=false
+Bindnames  : 
+Dependencies : 
+
+
+Name       : logging.debug
+Location   : res/template/shared/log/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/shared/log/uams.modules
+Classname  : amdocs.uamsimpl.server.log.filter.LogFilteringModule
+Type       : mandatory
+Access     : private
+Startup    : enabled
+inheritFrom: 
+Properties :
+	filter.facility=4194303
+	filter.severity=3
+	logger=logger.debug
+Bindnames  : 
+Dependencies : 
+	logger.debug
+
+
+Name       : connection7
+Location   : res/template/client/transport/connection7/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/transport/connection7/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.URLObjectConnModule
+Type       : optional
+Access     : private
+Startup    : disabled
+inheritFrom: 
+Properties :
+	url=http:///UamsTransport/TransportServlet
+	uams.serialization=false
+Bindnames  : 
+Dependencies : 
+
+
+Name       : log.email
+Location   : res/template/client/log/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/log/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsLogServiceProxyModule
+Type       : mandatory
+Access     : public
+Startup    : disabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	servicename=UamsEmailService
+Bindnames  : 
+	UamsEmailService
+Dependencies : 
+	invoker
+
+
+Name       : gen.pwd
+Location   : res/template/client/pwdsrvc/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/pwdsrvc/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsPasswordGenerationServiceProxyModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	servicename=UamsPasswordGenerationService
+Bindnames  : 
+	UamsPasswordGenerationService
+Dependencies : 
+	invoker
+
+
+Name       : sess.invalidator
+Location   : res/template/client/sessattr/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/sessattr/uams.modules
+Classname  : amdocs.uamsimpl.server.sessionctrl.attr.InvalidateSessionAttributeService
+Type       : mandatory
+Access     : private
+Startup    : enabled
+inheritFrom: 
+Properties :
+	ticket.attr.helper=ticket.helper
+	invalidator.service=sess.stor
+	session.attributes.delegate=session.attr.proxy
+Bindnames  : 
+Dependencies : 
+	sess.stor
+	ticket.helper
+	session.attr.proxy
+
+
+Name       : direct.internal.login
+Location   : res/template/client/directlogin/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/directlogin/uams.modules
+Classname  : amdocs.uamsimpl.client.login.direct.DirectLoginServiceModule
+Type       : mandatory
+Access     : private
+Startup    : enabled
+inheritFrom: 
+Properties :
+	ticket.attr.helper=ticket.helper
+	loginsp.service=step.internal.loginsp
+Bindnames  : 
+Dependencies : 
+	ticket.helper
+	step.internal.loginsp
+
+
+Name       : session.attr.proxy
+Location   : res/template/client/sessattr/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/sessattr/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsSessionAttributesServiceProxyModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	servicename=UamsSessionAttributesService
+Bindnames  : 
+	UamsSessionAttributesService
+Dependencies : 
+	invoker
+
+
+Name       : sess.backend.stor
+Location   : res/template/client/sessctrl/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/sessctrl/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsSessionUpdatableStorageServiceProxyModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	servicename=UamsSessionManager
+Bindnames  : 
+	UamsSessionManager
+	SessionStorSkel
+Dependencies : 
+	invoker
+
+
+Name       : direct.login
+Location   : res/template/client/directlogin/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/directlogin/uams.modules
+Classname  : amdocs.uamsimpl.client.login.direct.DirectLoginServiceModule
+Type       : mandatory
+Access     : private
+Startup    : enabled
+inheritFrom: 
+Properties :
+	ticket.attr.helper=ticket.helper
+	loginsp.service=step.loginsp
+Bindnames  : 
+Dependencies : 
+	ticket.helper
+	step.loginsp
+
+
+Name       : connection4
+Location   : res/template/client/transport/connection4/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/transport/connection4/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.URLObjectConnModule
+Type       : optional
+Access     : private
+Startup    : disabled
+inheritFrom: 
+Properties :
+	url=http:///UamsTransport/TransportServlet
+	uams.serialization=false
+Bindnames  : 
+Dependencies : 
+
+
+Name       : gui.login
+Location   : res/template/client/guilogin/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/guilogin/uams.modules
+Classname  : amdocs.uamsimpl.client.login.interactive.InteractiveLoginModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	loginsp.service=step.loginsp
+	login.datacollector.interactive.service=gui.datacollector
+Bindnames  : 
+	UamsGuiLogin
+	GuiLogin
+Dependencies : 
+	step.loginsp
+	gui.datacollector
+
+
+Name       : crypto.proxy
+Location   : res/template/client/crypto/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/crypto/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsEncryptionServiceProxyModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	servicename=UamsEncryptionService
+Bindnames  : 
+	EncryptionService
+	UamsEncryptionService
+Dependencies : 
+	invoker
+
+
+Name       : connection3
+Location   : res/template/client/transport/connection3/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/transport/connection3/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.URLObjectConnModule
+Type       : optional
+Access     : private
+Startup    : disabled
+inheritFrom: 
+Properties :
+	url=http:///UamsTransport/TransportServlet
+	uams.serialization=false
+Bindnames  : 
+Dependencies : 
+
+
+Name       : ticket.helper
+Location   : res/template/client/ticket/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/ticket/uams.modules
+Classname  : amdocs.uamsimpl.shared.ticket.TicketAttrHelperImpl
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	cache.size=1001
+	ticket.helper.ignore=false
+	ticket.helper.service=ticket.helper.delegate
+Bindnames  : 
+	TicketAttrHelper
+	UamsTicketAttrHelper
+	UamsTicketHelper
+Dependencies : 
+	ticket.helper.delegate
+
+
+Name       : log.audit
+Location   : res/template/client/audit/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/audit/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.UamsAuditServiceProxyModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	invoker.class=invoker
+	servicename=UamsAuditService
+Bindnames  : 
+	UamsAuditService
+Dependencies : 
+	invoker
+
+
+Name       : direct.login.ctc
+Location   : res/template/client/directlogin/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/directlogin/uams.modules
+Classname  : amdocs.uamsimpl.client.login.direct.CTCLoginWrapperModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	delegate.direct.login=direct.internal.login
+	use.sec.root=true
+Bindnames  : 
+	CtcDirectLogin
+	UamsCtcDirectLogin
+	DirectCredLogin
+	UamsCredLogin
+Dependencies : 
+	direct.internal.login
+
+
+Name       : connection2
+Location   : res/template/client/transport/connection2/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/transport/connection2/uams.modules
+Classname  : amdocs.uamsimpl.client.comm.impl.URLObjectConnModule
+Type       : optional
+Access     : private
+Startup    : disabled
+inheritFrom: 
+Properties :
+	url=http:///UamsTransport/TransportServlet
+	uams.serialization=false
+Bindnames  : 
+Dependencies : 
+
+
+Name       : log.debug.dispatcher
+Location   : res/template/shared/log/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/shared/log/uams.modules
+Classname  : amdocs.uamsimpl.server.log.dispatcher.DispatcherLogModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	send.alert.email=true
+	logger=logging.debug
+	send.event.email=false
+	alert.threshold=95
+	email.service=log.email
+Bindnames  : 
+	UamsDebugLog
+Dependencies : 
+	log.email
+	logging.debug
+
+
+Name       : authz.service
+Location   : res/template/client/authz/
+Abs. Path  : file:/C:/_dev/ExternalJars/uams.jar!/res/template/client/authz/uams.modules
+Classname  : amdocs.uamsimpl.shared.authz.pdp.CacheAuthorizationServiceModule
+Type       : mandatory
+Access     : public
+Startup    : enabled
+inheritFrom: 
+Properties :
+	cache.size=1001
+	cache.ttl=900
+	delegate.authz.service=policy.authz.service
+Bindnames  : 
+	UamsAuthorizationService
+	UamsAuthorization
+Dependencies : 
+	policy.authz.service
+
+
