@@ -1,0 +1,28 @@
+2014.12.09-19:18:19 |HIMANSHS04|THD:1|UAMS_TRANSPORT|UamsRemoteServiceInvokerImpl.getRemoteTarget
+ |ERROR| <<UAMS 1500002: Amdocs Security Manager configuration exception. The UamsObjectNameHelper service is not found on the Security Server.>>
+	amdocs.uamsimpl.client.comm.impl.UamsInvokerModule$UamsRemoteServiceInvokerImpl.getRemoteTarget(UamsInvokerModule.java:192)
+	amdocs.uamsimpl.client.comm.impl.UamsObjectNameHelperProxyModule.activate(UamsObjectNameHelperProxyModule.java:46)
+	amdocs.uamsimpl.shared.module.UamsModuleManagmentServiceImpl.activate(UamsModuleManagmentServiceImpl.java:525)
+	amdocs.uamsimpl.shared.module.UamsModuleManagmentServiceImpl.start(UamsModuleManagmentServiceImpl.java:178)
+	amdocs.uams.UamsSystem.start(UamsSystem.java:459)
+	amdocs.uams.UamsSystem.<clinit>(UamsSystem.java:613)
+	FETCMClient.getTicket(FETCMClient.java:266)
+	FETCMClient.getInitialContext_PROD(FETCMClient.java:206)
+	FETCMClient.run(FETCMClient.java:59)
+	FETCMClient.main(FETCMClient.java:45)
+
+
+2014.12.09-19:20:33 |HIMANSHS04|THD:1|UAMS_TRANSPORT|UamsRemoteServiceInvokerImpl.getRemoteTarget
+ |ERROR| <<UAMS 1500002: Amdocs Security Manager configuration exception. The UamsObjectNameHelper service is not found on the Security Server.>>
+	amdocs.uamsimpl.client.comm.impl.UamsInvokerModule$UamsRemoteServiceInvokerImpl.getRemoteTarget(UamsInvokerModule.java:192)
+	amdocs.uamsimpl.client.comm.impl.UamsObjectNameHelperProxyModule.activate(UamsObjectNameHelperProxyModule.java:46)
+	amdocs.uamsimpl.shared.module.UamsModuleManagmentServiceImpl.activate(UamsModuleManagmentServiceImpl.java:525)
+	amdocs.uamsimpl.shared.module.UamsModuleManagmentServiceImpl.start(UamsModuleManagmentServiceImpl.java:178)
+	amdocs.uams.UamsSystem.start(UamsSystem.java:459)
+	amdocs.uams.UamsSystem.<clinit>(UamsSystem.java:613)
+	FETCMClient.getTicket(FETCMClient.java:266)
+	FETCMClient.getInitialContext_PROD(FETCMClient.java:206)
+	FETCMClient.run(FETCMClient.java:59)
+	FETCMClient.main(FETCMClient.java:45)
+
+

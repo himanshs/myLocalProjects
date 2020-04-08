@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uams_credentials>
+	<ctc>
+		<owner>SysCtcUser</owner>
+		<creationDate>1455445694863</creationDate>
+		<effectiveDate>0</effectiveDate>
+		<expirationDate>1486981694863</expirationDate>
+		<cryptoResource>uams.ctc.encryption</cryptoResource>
+		<signature>f5d7jzVbfjNHpnA{bDlxrncKoThzbClKoT9Vs7hFrSUKc3JdfncNjT9WgmR7qP1ap6xBiCVgc6xde34OePMLkQtef22</signature>
+	</ctc>
+	<ctc>
+		<owner>UamsHAAdminUser</owner>
+		<creationDate>1455445694898</creationDate>
+		<effectiveDate>0</effectiveDate>
+		<expirationDate>1486981694898</expirationDate>
+		<cryptoResource>uams.ctc.encryption</cryptoResource>
+		<signature>f5d7jzVbfjNHpnA{bDlxrncKoThzbClKoT9Vs7hFrSUKc3JdfngVi45Tln1Kq6RRqCxRe3xFrmZiqP4OePMLkQtef22</signature>
+	</ctc>
+	<ctc>
+		<owner>batch_abp1</owner>
+		<creationDate>1455445695614</creationDate>
+		<effectiveDate>0</effectiveDate>
+		<expirationDate>1486981695614</expirationDate>
+		<cryptoResource>uams.ctc.encryption</cryptoResource>
+		<signature>f5d7jzVbfjNHpnA{bDlxrncKoThzbClKoT9Vs7hFrSUKc3Jdfl1Ns6tNdCZju7QMl5pAkB1qvnBOs3cOePMLkQtef22</signature>
+	</ctc>
+	<ctc>
+		<owner>omsproxy</owner>
+		<creationDate>1455452687515</creationDate>
+		<effectiveDate>0</effectiveDate>
+		<expirationDate>1770812687515</expirationDate>
+		<cryptoResource>uams.ctc.encryption</cryptoResource>
+		<signature>f5d7jzVbfjNHpnA{bDlxrncKoThzbClKoT9Vs7hFrSUKc3JdfldRtmhcq71Hl6RiqRppr6FOsPtiuz8OePMLkQtef22</signature>
+	</ctc>
+</uams_credentials>

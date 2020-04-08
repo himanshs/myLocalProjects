@@ -1,0 +1,15 @@
+<<< UAMS SYSTEM >>> :: Sun Feb 21 15:22:55 IST 2016 ::  < MODULE uams.primary.logger > Uams version << UAMS >> 8.2.0.pb00
+<<< UAMS SYSTEM >>> :: Sun Feb 21 15:22:55 IST 2016 ::  < MODULE uams.primary.logger > amdocs.uams.UamsSystem location jar:file:/C:/_dev/ExternalJars/uams.jar!/amdocs/uams/UamsSystem.class
+<<< UAMS SYSTEM >>> :: Sun Feb 21 15:22:55 IST 2016 ::  < MODULE uams.primary.logger > amdocs.system.home C:\Himanshu\EclipseWorkspace\MyProject\
+<<< UAMS SYSTEM >>> :: Sun Feb 21 15:22:55 IST 2016 ::  < MODULE uams.primary.logger > Initiated - output file C:\Himanshu\EclipseWorkspace\MyProject\/uams_mm0.log
+<<< UAMS SYSTEM >>> :: Sun Feb 21 15:22:55 IST 2016 ::  < MODULE uams.syscred.handler > Initiated.
+<<< UAMS SYSTEM >>> :: Sun Feb 21 15:22:55 IST 2016 ::  < MODULE uams.primary.verifier > Initiated.
+<<< UAMS SYSTEM >>> :: Sun Feb 21 15:22:55 IST 2016 ::  < MODULE uams.primary.verifier > Classpath: C:\Himanshu\EclipseWorkspace\MyProject\bin;C:\_dev\ExternalJars\uams.jar;C:\_dev\ExternalJars\rpl\crpl9e_client_classes.jar;C:\_dev\ExternalJars\rpl\grple_crpl3e_crpl9e_client_classes.jar;C:\_dev\ExternalJars\rpl\crpl3e_client_classes.jar;C:\_dev\ExternalJars\rpl\grple_client_classes.jar;C:\_dev\ExternalJars\cbl9e_classes.jar;C:\_dev\ExternalJars\xstream.jar;C:\_dev\ExternalJars\xmlpull-1.1.3.1.jar;C:\_dev\ExternalJars\itextpdf-5.4.2.jar;C:\_dev\ExternalJars\curm9srv_client_classes.jar;C:\_dev\ExternalJars\gurmsrv_client_classes.jar;C:\_dev\ExternalJars\gajtuh_classes.jar;C:\_dev\ExternalJars\gjf_classes.jar;C:\_dev\ExternalJars\EmsJars\jms.jar;C:\_dev\ExternalJars\ccm9e_classes.jar;C:\_dev\ExternalJars\gcme_client_classes.jar;C:\_dev\ExternalJars\log4j.jar;C:\_dev\ExternalJars\gbl1e_classes.jar;C:\_dev\ExternalJars\j2ee.jar;C:\_dev\ExternalJars\wlfullclient.jar;C:\_dev\ExternalJars\weblogic.jar;C:\_dev\ExternalJars\wlclient.jar;C:\_dev\ExternalJars\junit-4.12.jar;C:\_dev\ExternalJars\jsch-0.1.53.jar
+<<< UAMS SYSTEM >>> :: Sun Feb 21 15:22:56 IST 2016 ::  < MODULE uams.primary.verifier > Loading JVM properties...
+<<< UAMS SYSTEM >>> :: Sun Feb 21 15:22:56 IST 2016 ::  < MODULE uams.primary.verifier > -Djava.ext.dirs=C:\Program Files (x86)\Java\jre7\lib\ext;C:\WINDOWS\Sun\Java\lib\ext
+<<< UAMS SYSTEM >>> :: Sun Feb 21 15:22:56 IST 2016 ::  < MODULE uams.properties.loader > Initiation started
+<<< UAMS SYSTEM >>> :: Sun Feb 21 15:22:56 IST 2016 ::  < MODULE uams.properties.loader > Looking for file: C:\Himanshu\EclipseWorkspace\MyProject\/uams.properties
+<<< UAMS SYSTEM >>> :: Sun Feb 21 15:22:56 IST 2016 ::  < MODULE uams.properties.loader > File C:\Himanshu\EclipseWorkspace\MyProject\/uams.properties is found.
+<<< UAMS SYSTEM >>> :: Sun Feb 21 15:22:56 IST 2016 ::  < MODULE uams.properties.loader > Loading local properties...
+<<< UAMS SYSTEM >>> :: Sun Feb 21 15:22:56 IST 2016 ::  < MODULE uams.properties.loader > Initiated.
+<<< UAMS SYSTEM >>> :: Sun Feb 21 15:22:56 IST 2016 ::  < MODULE module.config.loader > No UAMS template defined and no UAMS local configuration found.
