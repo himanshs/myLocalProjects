@@ -25,7 +25,7 @@ public class DSNDumpCompareReportGenerator
             String s = propertiesloader.getPropertyValue("dbcompare.database.url");
             String s1 = propertiesloader.getPropertyValue("dbcompare.database.source.userName");
             String s2 = propertiesloader.getPropertyValue("dbcompare.database.source.userPass");
-            System.out.println("Going to obtain Connection!!!");
+            System.out.println("Going to obtain Connection...");
             Connection connection = DriverManager.getConnection(s, s1, s2);
             HSSFWorkbook hssfworkbook = new HSSFWorkbook();
             connection.setAutoCommit(false);
